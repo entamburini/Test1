@@ -1,0 +1,55 @@
+#-------------------------------------------------------------------------------
+# Name:        module1
+# Purpose:
+#
+# Author:      Maximiliano
+#
+# Created:     22-07-2016
+# Copyright:   (c) Maximiliano 2016
+# Licence:     <your licence>
+#-------------------------------------------------------------------------------
+def vocales(texto):
+    arch=open(texto,"r")
+    s="97-101-105-111-117-65-69-73-79-85"
+    c=0
+    l=map(int,s.split("-"))
+    l1=[]
+    for i in arch:
+        for j in i:
+            if ord(j) in l:
+                c+=1
+    arch.close()
+    return c
+def palabra_sin_vocal(string):
+    s="97-101-105-111-117-65-69-73-79-85"
+    l=map(int,s.split("-"))
+    l1=[]
+    for i in string:
+        if ord(i) not in l:
+            l1.append(i)
+    return "".join(l1)
+
+def sin_vocales(texto):
+    arch=open(texto,"r")
+    arch2=open("sin_vocales.txt","w")
+    s="97-101-105-111-117-65-69-73-79-85"
+
+    l=map(int,s.split("-"))
+    for linea in arch:
+        l2=[]
+        l1=linea.split(" ")
+        for i in l1:
+            p=palabra_sin_vocal(i)
+            l2.append(p)
+        linea2=" ".join(l2)
+        arch2.write(linea2)
+    arch.close()
+    arch2.close()
+    return None
+
+
+
+
+
+
+
